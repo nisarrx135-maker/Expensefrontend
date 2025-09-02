@@ -23,7 +23,7 @@ function ExpenseContainer() {
  async function addexpense(title, amount) {
   try
    { 
-    const response = await fetch("http://localhost:3333/post",
+    const response = await fetch("https://expansetracker-2.onrender.com/post",
      { method: "POST", 
       headers: { "Content-Type": "application/json" },
        body: JSON.stringify({ title, amount })
@@ -36,7 +36,7 @@ function ExpenseContainer() {
            }
 }
 async function getExpenses(){
-  const response = await fetch("http://localhost:3333/get")
+  const response = await fetch("https://expansetracker-2.onrender.com/get")
   const data = await response.json();
   setexpense(data.expense);
 }
@@ -46,7 +46,7 @@ useEffect(()=>{
 
 
    async function deleteExpense(id){  
-     await fetch(`http://localhost:3333/delete/${id}`,{
+     await fetch(`https://expansetracker-2.onrender.com/delete/${id}`,{
       method:"DELETE",
      });
      getExpenses()
